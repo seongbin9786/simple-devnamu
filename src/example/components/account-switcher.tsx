@@ -1,5 +1,6 @@
 import * as React from "react";
 
+import { cn } from "@/lib/utils";
 import {
     Select,
     SelectContent,
@@ -7,8 +8,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/registry/new-york/ui/select";
-
-import { cn } from "../../lib/utils";
 
 interface AccountSwitcherProps {
     isCollapsed: boolean;
