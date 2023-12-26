@@ -6,25 +6,17 @@ import { cn } from "@/lib/utils.ts";
 
 const ThreadDemo = ({
     hashTagName,
-    width,
-    height,
+    className,
     commentNum = 3,
 }: {
     hashTagName: string;
-    width: string;
-    height?: string;
+    className?: string;
     commentNum?: number;
 }) => {
     const commentArr = Array.from({ length: commentNum }, (_, i) => i + 1);
 
     return (
-        <div
-            className={cn(
-                "flex flex-col gap-4",
-                width ? `w-[${width}]` : "w-full",
-                height ? `h-[${height}]` : "",
-            )}
-        >
+        <div className={cn("flex flex-col gap-4 w-full", className)}>
             <HeaderDemo threadName="스레드" tagContent={hashTagName} />
 
             <PostDemo commentNum={commentNum} />
