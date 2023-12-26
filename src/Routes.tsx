@@ -1,9 +1,12 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Layout from "@/components/Layout";
+
 import ExamplePage from "./example/ExamplePage";
 import MainPage from "./pages/MainPage";
 import MyArticlePage from "./pages/MyArticlePage";
 import MyNotificationPage from "./pages/MyNotificationPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +25,14 @@ const router = createBrowserRouter([
         path: "/example",
         element: <ExamplePage />,
     },
+    {
+        path: "*",
+        element: <NotFoundPage />,
+    },
 ]);
 
-export const Routes = () => <RouterProvider router={router} />;
+export const Routes = () => (
+    <Layout>
+        <RouterProvider router={router} />
+    </Layout>
+);
