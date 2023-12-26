@@ -16,7 +16,7 @@ const ThreadDemo = ({
     const commentArr = Array.from({ length: commentNum }, (_, i) => i + 1);
 
     return (
-        <div className={cn("flex flex-col gap-4 w-full", className)}>
+        <div className={cn("flex w-full flex-col gap-4", className)}>
             <HeaderDemo threadName="스레드" tagContent={hashTagName} />
 
             <PostDemo commentNum={commentNum} />
