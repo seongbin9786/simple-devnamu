@@ -1,5 +1,5 @@
 import { HeartFilledIcon } from "@radix-ui/react-icons";
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { formatDistanceToNow } from "date-fns";
 import { ko } from "date-fns/locale/ko";
 import { MessageSquareTextIcon } from "lucide-react";
 
@@ -19,7 +19,7 @@ export function MailList({ items }: MailListProps) {
 
     return (
         <ScrollArea className="h-screen">
-            <div className="flex flex-col gap-2 p-4 pt-0 my-4">
+            <div className="my-4 flex flex-col gap-2 p-4 pt-0">
                 {items.map((item) => (
                     <button
                         key={item.id}

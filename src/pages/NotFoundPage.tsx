@@ -1,5 +1,3 @@
-export interface Props {}
-
-export default function MainPage(props: Props) {
+export default function MainPage() {
     return <div>Not Found!!</div>;
 }

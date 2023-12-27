@@ -1,5 +1,5 @@
-import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import ko from "date-fns/locale/ko";
+import { formatDistanceToNow } from "date-fns";
+import { ko } from "date-fns/locale";
 import { ComponentProps } from "react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/new-york/ui/avatar";
@@ -16,6 +16,10 @@ interface MailDisplayProps {
 }
 
 export function MailDisplay({ mail }: MailDisplayProps) {
+    if (!mail) {
+        return null;
+    }
+
     const randomComments = comments.filter(() => Math.random() > 0.7);
 
     return (
@@ -44,7 +48,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                                     </div>
                                 </div>
                                 {mail.date && (
-                                    <div className="ml-auto text-xs text-muted-foreground text-nowrap">
+                                    <div className="ml-auto text-nowrap text-xs text-muted-foreground">
                                         {formatDistanceToNow(new Date(mail.date), {
                                             addSuffix: true, // '전' 을 추가할지 여부
                                             locale: ko,
@@ -53,7 +57,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                                 )}
                             </div>
                             {mail.labels.length ? (
-                                <div className="flex items-center gap-2 m-4 mt-0">
+                                <div className="m-4 mt-0 flex items-center gap-2">
                                     {mail.labels.map((label) => (
                                         <Badge
                                             key={label}
@@ -85,7 +89,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                                             </div>
                                         </div>
                                         {comment.date && (
-                                            <div className="ml-auto text-xs text-muted-foreground text-nowrap">
+                                            <div className="ml-auto text-nowrap text-xs text-muted-foreground">
                                                 {formatDistanceToNow(new Date(comment.date), {
                                                     addSuffix: true, // '전' 을 추가할지 여부
                                                     locale: ko,
