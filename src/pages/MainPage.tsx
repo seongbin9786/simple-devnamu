@@ -38,15 +38,19 @@ export default function MainPage() {
                                         className="flex flex-col items-start justify-between py-2 m-4 cursor-pointer"
                                     >
                                         <DayDivider text={`${15 - index}일 전`} />
-                                        <div className="flex flex-col pt-4">
-                                            <h1 className="text-lg font-semibold">
-                                                익명의 프롱이1
-                                            </h1>
+                                        <div className="flex flex-col gap-1 pt-4">
+                                            <div className="flex items-center gap-2">
+                                                <h1 className="items-center text-lg font-semibold">
+                                                    익명의 프롱이
+                                                </h1>
+                                                <span className="text-xs text-slate-500">
+                                                    오후 12:33
+                                                </span>
+                                            </div>
                                             <p className="text-sm text-[#64748B]">
                                                 오늘 하루 날렸습니다. 이렇게 된 이상 롤 하실 분?
                                             </p>
                                         </div>
-                                        <span>오후 12:33</span>
                                     </li>
                                 </>
                             ))}
