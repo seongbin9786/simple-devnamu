@@ -1,17 +1,18 @@
-import { Button } from "@/registry/new-york/ui/button";
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/registry/new-york/ui/card";
-import { Input } from "@/registry/new-york/ui/input";
 import { Label } from "@radix-ui/react-menubar";
 
-const Modal = ({ show, onClose }: { show: boolean }) => {
-    return show ? (
+import { Button } from "@/registry/new-york/ui/button";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/registry/new-york/ui/card";
+import { Input } from "@/registry/new-york/ui/input";
+
+interface Props {
+    show: boolean;
+    onClose: () => void;
+}
+
+const Modal = ({ show, onClose }: Props) => {
+    if (!show) return null;
+
+    return (
         <div className="fixed left-0 top-0 z-10 h-full w-full bg-black bg-opacity-50">
             <div className="fixed left-2/4 top-2/4 -translate-x-2/4 -translate-y-2/4">
                 <div>
@@ -43,8 +44,6 @@ const Modal = ({ show, onClose }: { show: boolean }) => {
                 </div>
             </div>
         </div>
-    ) : (
-        ""
     );
 };
 

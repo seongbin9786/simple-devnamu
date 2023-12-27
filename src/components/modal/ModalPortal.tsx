@@ -1,9 +1,8 @@
-import { ReactComponentElement } from "react";
-import { ReactDOM } from "react-dom";
+import { PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
 
-const ModalPortal = ({ children }) => {
+const ModalPortal = ({ children }: PropsWithChildren) => {
     const element = document.getElementById("modal");
-    return createPortal(children as ReactComponentElement, element as HTMLElement) as HTMLElement;
+    return createPortal(children, element!);
 };
 export default ModalPortal;

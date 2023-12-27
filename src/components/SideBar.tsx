@@ -1,11 +1,12 @@
-import { Switch } from "@/registry/default/ui/switch";
+import { useState } from "react";
+
+import Modal from "@/components/modal/Modal";
 import AvatarDemo from "@/components/threadAtom/AvatarDemo.tsx";
+import { Switch } from "@/registry/default/ui/switch";
 import Home from "@/registry/svg/home.svg";
 import Message from "@/registry/svg/message.svg";
 import Write from "@/registry/svg/write.svg";
-import Modal from "@/components/modal/Modal";
 
-import { useState } from "react";
 import ModalPortal from "./modal/ModalPortal";
 
 const SideBar = () => {
