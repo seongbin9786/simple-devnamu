@@ -1,14 +1,46 @@
-import { PropsWithChildren } from "react";
+import { Link, Outlet } from "react-router-dom";
+
 import SideBar from "@/components/SideBar";
 
-export default function MyArticlePage(props: PropsWithChildren) {
+const links = [
+    {
+        path: "/",
+        pageName: "MainPage",
+    },
+    {
+        path: "/my-articles",
+        pageName: "MyArticlePage",
+    },
+    {
+        path: "/my-notifications",
+        pageName: "MyNotificationPage",
+    },
+    {
+        path: "/example",
+        pageName: "ExamplePage",
+    },
+    {
+        path: "/hr",
+        pageName: "HRPage",
+    },
+];
+
+export default function Layout() {
     return (
         <div className="flex">
-            <div>layout</div>
-            <div className=" mt-64 p-2">
-                <SideBar></SideBar>
+            <div className="p-2 mt-64">
+                <SideBar />
+                <div className="flex flex-col">
+                    {links.map(({ path, pageName }) => (
+                        <Link key={path} to={path}>
+                            {pageName}
+                        </Link>
+                    ))}
+                </div>
             </div>
-            <div>{props.children}</div>
+            <div className="w-full h-screen overflow-auto">
+                <Outlet />
+            </div>
         </div>
     );
 }
