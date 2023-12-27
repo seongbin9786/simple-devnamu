@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "@/components/Layout";
 
 import ExamplePage from "./example/ExamplePage";
+import HRPage from "./pages/HRPage";
 import MainPage from "./pages/MainPage";
 import MyArticlePage from "./pages/MyArticlePage";
 import MyNotificationPage from "./pages/MyNotificationPage";
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     {
         path: "/example",
         element: <ExamplePage />,
+    },
+    {
+        path: "/hr",
+        element: <HRPage />,
     },
     {
         path: "*",
