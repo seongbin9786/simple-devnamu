@@ -20,8 +20,8 @@ export const DayDivider = ({ text }: Props) => {
     }, []);
 
     const onVisibleScrollUp = useCallback(() => {
-        setSeparatorPositioning("static");
-        setTextPositioning("fixed");
+        setSeparatorPositioning("sticky");
+        setTextPositioning("static");
     }, []);
 
     const [separatorRef, textRef] = useDayDividerVisibility({
@@ -29,15 +29,16 @@ export const DayDivider = ({ text }: Props) => {
         onVisibleScrollUp,
     });
 
-    const topPos = textPositioning === "fixed" ? "top-2" : "-top-3";
+    const textTopPos = textPositioning === "static" ? "mt-2" : "-top-3";
+    const separatorTopPos = separatorPositioning === "sticky" ? "-top-1" : "top-0";
     return (
-        <SeparatorWithChildren ref={separatorRef} className={separatorPositioning}>
-            <div
-                ref={textRef}
-                className={cn("left-1/2 cursor-pointer select-none", textPositioning, topPos)}
-            >
-                <div className="flex flex-row items-center gap-[2px] rounded-2xl border-[1px] border-stone-500 bg-white px-[10px] py-1 text-stone-700">
-                    <span className="font text-xs font-bold tracking-tighter">{text}</span>
+        <SeparatorWithChildren
+            ref={separatorRef}
+            className={cn("flex justify-center", separatorTopPos, separatorPositioning)}
+        >
+            <div ref={textRef} className={cn("transition-all", textPositioning, textTopPos)}>
+                <div className="flex cursor-pointer select-none flex-row items-center gap-[2px] rounded-2xl border-[1px] border-stone-500 bg-white px-[10px] py-1 text-stone-700">
+                    <span className="text-xs font-bold tracking-tighter font">{text}</span>
                     <ChevronDown size={12} />
                 </div>
             </div>
