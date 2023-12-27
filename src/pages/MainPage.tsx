@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SideBar from "@/components/SideBar";
+
 import ThreadDemo from "@/components/ThreadDemo";
 import { Button } from "@/registry/default/ui/button";
 import { Textarea } from "@/registry/default/ui/textarea";
@@ -16,9 +16,6 @@ export default function MainPage() {
 
     return (
         <div className="flex">
-            <div className="mt-7 p-2">
-                <SideBar></SideBar>
-            </div>
             <div className="relative flex h-screen items-center justify-center overflow-hidden">
                 <div className="flex w-[90rem] flex-col  justify-center ">
                     <Menubar className="w-auto border-none ">

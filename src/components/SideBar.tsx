@@ -19,7 +19,7 @@ const SideBar = () => {
     };
     return (
         <>
-            <div className="flex w-48 flex-col justify-center rounded-md border border-[#CBD5E1] p-2 shadow ">
+            <div className="relative flex w-48 flex-col justify-center rounded-md border border-[#CBD5E1] p-2 shadow ">
                 <div className="mb-2 flex px-1">
                     <Switch className="mr-1" onCheckedChange={handleToggle} checked={toggled} />
                     <div className="grow text-sm text-[#64748B]">다크모드</div>
