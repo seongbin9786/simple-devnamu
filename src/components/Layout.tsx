@@ -38,7 +38,7 @@ export default function Layout() {
                     ))}
                 </div>
             </div>
-            <div className="w-full h-screen overflow-auto">
+            <div className="w-full">
                 <Outlet />
             </div>
         </div>

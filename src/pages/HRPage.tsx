@@ -2,8 +2,7 @@ import { DayDivider } from "@/components/DayDivider";
 
 export default function HRPage() {
     return (
-        // 항상 relative여도 됨
-        <div id="target" className="relative flex w-full flex-col">
+        <div className="relative w-full h-screen overflow-auto">
             <div className="h-[1200px] bg-slate-500">hi</div>
             <DayDivider text="어제" />
             <div className="h-[1200px] bg-slate-500">hi</div>
