@@ -34,7 +34,7 @@ export const DayDivider = ({ text }: Props) => {
     return (
         <SeparatorWithChildren
             ref={separatorRef}
-            className={cn("flex justify-center", separatorTopPos, separatorPositioning)}
+            className={cn("d flex justify-center", separatorTopPos, separatorPositioning)}
         >
             <div ref={textRef} className={cn("transition-all", textPositioning, textTopPos)}>
                 <div className="flex cursor-pointer select-none flex-row items-center gap-[2px] rounded-2xl border-[1px] border-stone-500 bg-white px-[10px] py-1 text-stone-700">

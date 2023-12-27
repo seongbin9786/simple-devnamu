@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { DayDivider } from "@/components/DayDivider";
 import ThreadDemo from "@/components/ThreadDemo";
 import { Button } from "@/registry/default/ui/button";
 import { Textarea } from "@/registry/default/ui/textarea";
@@ -16,9 +17,9 @@ export default function MainPage() {
 
     return (
         <div className="flex">
-            <div className="relative flex h-screen items-center justify-center overflow-hidden">
-                <div className="flex w-[90rem] flex-col  justify-center ">
-                    <Menubar className="w-auto border-none ">
+            <div className="relative w-full h-screen p-4 overflow-hidden">
+                <div className="flex flex-col justify-center ">
+                    <Menubar className="border-none ">
                         <MenubarMenu>
                             <MenubarTrigger>무능 게시판</MenubarTrigger>
                             <MenubarSeparator />
@@ -28,22 +29,26 @@ export default function MainPage() {
                             <MenubarSeparator />
                         </MenubarMenu>
                     </Menubar>
-                    <div className="h-[40rem] w-full overflow-y-auto rounded-t-md border border-[#CBD5E1] p-6 shadow">
-                        <ul>
+                    <div className="h-[40rem] w-full overflow-y-auto rounded-t-md border border-[#CBD5E1] shadow">
+                        <ul className="mt-10">
                             {Array.from({ length: 15 }).map((_, index) => (
-                                <li
-                                    onClick={() => setToggleThread(!toggleThread)}
-                                    key={index}
-                                    className="mb-4 flex cursor-pointer items-start justify-between"
-                                >
-                                    <div className="flex flex-col">
-                                        <h1 className="text-lg font-semibold">익명의 프롱이1</h1>
-                                        <p className="text-sm text-[#64748B]">
-                                            오늘 하루 날렸습니다. 이렇게 된 이상 롤 하실 분?
-                                        </p>
-                                    </div>
-                                    <span>오후 12:33</span>
-                                </li>
+                                <>
+                                    <li
+                                        onClick={() => setToggleThread(!toggleThread)}
+                                        className="flex flex-col items-start justify-between py-2 m-4 cursor-pointer"
+                                    >
+                                        <DayDivider text={`${15 - index}일 전`} />
+                                        <div className="flex flex-col pt-4">
+                                            <h1 className="text-lg font-semibold">
+                                                익명의 프롱이1
+                                            </h1>
+                                            <p className="text-sm text-[#64748B]">
+                                                오늘 하루 날렸습니다. 이렇게 된 이상 롤 하실 분?
+                                            </p>
+                                        </div>
+                                        <span>오후 12:33</span>
+                                    </li>
+                                </>
                             ))}
                         </ul>
                     </div>
@@ -60,7 +65,7 @@ export default function MainPage() {
                     </form>
                 </div>
                 {toggleThread && (
-                    <div className="fixed right-0 top-0 z-10 h-screen">
+                    <div className="fixed top-0 right-0 z-10 h-screen">
                         <ThreadDemo
                             hashTagName="응원 게시판"
                             className="h-full w-[40rem] bg-white"

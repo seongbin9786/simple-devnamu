@@ -51,8 +51,7 @@ export const useDayDividerVisibility = ({ onInvisibleScrollDown, onVisibleScroll
                 prevTextY.current = y;
             },
             {
-                rootMargin: "-15px 0px 0px 0px", // margin은 1px 단위로 체크하면서 정해줘야 함. text 영역의 크기가 바뀌면 다시 설정 필수!!
-                threshold: [0, 1], // 일단 on/off 로만 확인
+                rootMargin: "-10px 0px 0px 0px", // margin으로 뭘 해결하긴 어려워 보임
             },
         );
 
@@ -93,8 +92,7 @@ export const useDayDividerVisibility = ({ onInvisibleScrollDown, onVisibleScroll
                 prevSeparatorY.current = y;
             },
             {
-                rootMargin: "-10px 0px 0px 0px", // margin은 1px 단위로 체크하면서 정해줘야 함. text 영역의 크기가 바뀌면 다시 설정 필수!!
-                threshold: [0, 1], // 일단 on/off 로만 확인
+                rootMargin: "-10px 0px 0px 0px",
             },
         );
 
